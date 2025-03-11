@@ -1,0 +1,53 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class clint {
+    public static void main(String[] arg){
+        Scanner en = new Scanner(System.in);
+        String nom;
+        double comp;
+        int ope;
+        System.out.println("Menu\n1 - Adicionar usuario\n2 - Consultar usuario\n3 - Fazer compra");
+        ArrayList nome = new ArrayList<>();
+        //String nome [ ] = new String[10];
+        ope = valid();
+        switch(ope){
+            case 1:
+            System.out.println("Insira o nome");
+            nom = en.next();
+            nome.add(nom);
+            break;
+            case 2:
+            System.out.println("Localizar usuário, insira o nome");
+            nom=en.next();
+            if (nom.isEmpty()){
+                System.out.println("Lista vazia");
+            } else if (nom.equals(nom)){
+                System.out.println("Cliente encontrado");
+            }
+            break;
+            case 3:
+            System.out.println("Insira o valor total dos produtos");
+            comp=en.nextDouble();
+            double total=0;
+            total = total+0.9*comp;
+            System.out.println("Valor a pagar: R$ "+ total);
+            break;
+            default:
+            System.out.println("Erro no sistema");
+            }
+        }
+    
+    public static int valid (){
+        Scanner en = new Scanner(System.in);
+        int ope = 0;
+        System.out.println("Insira as opcoes");
+        ope = en.nextInt();
+        if (ope==1||ope==2||ope==3){
+            return ope;
+        } else {
+            System.out.println("Erro");
+            return valid();
+        }
+    }
+}
